@@ -180,7 +180,7 @@ public class GooglePhotosDownloader {
         int count = 0;
 
         for (MediaItem item : photosLibraryClient.listMediaItems().iterateAll()) {
-            if (limit != -1 && count >= limit) {
+            if (limit > 0 && count >= limit) {
                 System.out.println("Download limit reached. Limit: " + limit + " files. Run again to continue or, edit / remove the download limit from the configuration.");
 
                 break;
@@ -278,7 +278,13 @@ public class GooglePhotosDownloader {
 
         PhotosLibrarySettings settings = PhotosLibrarySettings.newBuilder().setCredentialsProvider(() -> userCredentials).build();
 
-        String downloadPath = System.getenv("DESTINATION_PATH") + "/googlePhotos/";
+        String destinationPath = System.getenv("DESTINATION_PATH");
+
+        if (destinationPath == null || destinationPath.isEmpty()) {
+            destinationPath = System.getProperty("user.dir");
+        }
+
+        String downloadPath = destinationPath + "/googlePhotos/";
 
         try (PhotosLibraryClient photosLibraryClient = PhotosLibraryClient.initialize(settings)) {
             downloadMediaItems(photosLibraryClient, downloadPath);
