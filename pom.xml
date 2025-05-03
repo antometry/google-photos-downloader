@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.frank</groupId>
-    <artifactId>GoogleDriveDownloader</artifactId>
+    <artifactId>GooglePhotosDownloader</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -15,28 +15,21 @@
     </properties>
 
     <dependencies>
-        <!-- Google Photos Library Client -->
         <dependency>
             <groupId>com.google.photos.library</groupId>
             <artifactId>google-photos-library-client</artifactId>
             <version>1.7.3</version>
         </dependency>
-
-        <!-- Google API Client -->
         <dependency>
             <groupId>com.google.api-client</groupId>
             <artifactId>google-api-client</artifactId>
             <version>1.34.1</version>
         </dependency>
-
-        <!-- Google OAuth Client -->
         <dependency>
             <groupId>com.google.oauth-client</groupId>
             <artifactId>google-oauth-client-jetty</artifactId>
             <version>1.34.1</version>
         </dependency>
-
-        <!-- Google HTTP Client -->
         <dependency>
             <groupId>com.google.http-client</groupId>
             <artifactId>google-http-client-gson</artifactId>
@@ -54,10 +47,6 @@
         </dependency>
     </dependencies>
 
-
-
-
-
     <build>
         <plugins>
             <plugin>
@@ -68,7 +57,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.frank.Main</mainClass>
+                            <mainClass>com.frank.GooglePhotosDownloader</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -80,7 +69,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.frank.Main</mainClass>
+                            <mainClass>com.frank.GooglePhotosDownloader</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
