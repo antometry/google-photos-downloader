@@ -13,6 +13,8 @@ target/
 *.ipr
 *credentials*
 .idea
+exisingPhotosList.txt
+refreshTokens/
 
 ### Eclipse ###
 .apt_generated
